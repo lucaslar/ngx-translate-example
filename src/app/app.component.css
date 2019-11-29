@@ -1,0 +1,16 @@
+section {
+  font-family: Calibri, serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article {
+  text-align: center;
+  padding: 40px;
+}
+
+a:hover {
+  cursor: pointer;
+  color: royalblue;
+}
