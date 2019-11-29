@@ -40,10 +40,10 @@ export class LanguageService {
 
 class Language {
   readonly SUPPORTED_SPECIFICATIONS: string[];
-  private readonly regex: RegExp;
+  private readonly REGEX: RegExp;
 
   constructor(readonly IDENTIFIER: string, ...pSupportedSpecifications: string[]) {
-    this.regex = new RegExp(`${this.IDENTIFIER}-.+`);
+    this.REGEX = new RegExp(`${this.IDENTIFIER}-.+`);
     this.SUPPORTED_SPECIFICATIONS = pSupportedSpecifications;
     if (!this.SUPPORTED_SPECIFICATIONS.length) {
       console.error(`No specification for ${IDENTIFIER}!`);
@@ -51,7 +51,7 @@ class Language {
   }
 
   isSupported(pLocaleString: string): boolean {
-    return this.IDENTIFIER === pLocaleString || this.regex.test(pLocaleString);
+    return this.IDENTIFIER === pLocaleString || this.REGEX.test(pLocaleString);
   }
 
   getLangFileForLocaleString(pLocaleString: string): string {
