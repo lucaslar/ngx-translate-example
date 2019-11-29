@@ -19,14 +19,6 @@ export class LanguageService {
     this.changeLocale(this.userLocale);
   }
 
-  private get userLocale(): string {
-    let locale: string;
-    if (navigator.languages && navigator.languages.length) {
-      locale = navigator.languages.find(navLang => this.LANGUAGES.some(lang => lang.isSupported(navLang)));
-    }
-    return locale ? locale : navigator.language;
-  }
-
   changeLocale(pLanguage: string, pSpec?: string): void {
     const value = pLanguage + (pSpec ? `-${pSpec}` : '');
     const language = this.LANGUAGES.find(lang => lang.isSupported(value));
@@ -35,6 +27,14 @@ export class LanguageService {
 
   get current(): string {
     return this.translate.currentLang;
+  }
+
+  private get userLocale(): string {
+    let locale: string;
+    if (navigator.languages && navigator.languages.length) {
+      locale = navigator.languages.find(navLang => this.LANGUAGES.some(lang => lang.isSupported(navLang)));
+    }
+    return locale ? locale : navigator.language;
   }
 }
 
