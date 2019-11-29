@@ -1,4 +1,4 @@
 {
   "HELLO": "Oi!",
-  "CURRENT": "Atual: {{current}}"
+  "CURRENT_LANGUAGE": "Atual: {{current}}"
 }
